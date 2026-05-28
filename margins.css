@@ -1,0 +1,4 @@
+div {
+  margin: 20px;                /* all sides */
+  margin: 10px 15px;           /* top/bottom, left/right */
+}

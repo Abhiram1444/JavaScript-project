@@ -1,0 +1,14 @@
+<div id="parent" style="padding:20px; background:lightblue;">
+    Parent
+    <button id="child">Child Button</button>
+</div>
+
+<script>
+document.getElementById("parent").addEventListener("click", () => {
+    console.log("Parent clicked (bubbling)");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+    console.log("Child clicked");
+});
+</script>

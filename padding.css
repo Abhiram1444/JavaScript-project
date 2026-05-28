@@ -1,0 +1,4 @@
+div {
+  padding: 15px;               /* all sides */
+  padding: 10px 20px;           /* top/bottom, left/right */
+}
