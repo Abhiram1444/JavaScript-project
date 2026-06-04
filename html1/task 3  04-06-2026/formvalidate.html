@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .error {
+            color: rgb(192, 18, 114);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <label>Name:</label><br>
+        <input type="text" id="name">
+        <span id="nameError" class="error"></span>
+        <br><br>
+
+        <label>Email:</label><br>
+        <input type="text" id="email">
+        <span id="emailError" class="error"></span>
+        <br><br>
+
+        <label>Password:</label><br>
+        <input type="password" id="password">
+        <span id="passwordError" class="error"></span>
+        <br><br>
+
+        <label>Confirm Password:</label><br>
+        <input type="password" id="confirmPassword">
+        <span id="confirmError" class="error"></span>
+        <br><br>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <script>
+        function validateForm() {
+
+            // Clear previous errors
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("passwordError").innerHTML = "";
+            document.getElementById("confirmError").innerHTML = "";
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+
+            let isValid = true;
+
+            // Name Validation
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "Name is required";
+                isValid = false;
+            } else if (name.length < 3) {
+                document.getElementById("nameError").innerHTML = "Minimum 3 characters required";
+                isValid = false;
+            }
+
+            // Email Validation
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+                document.getElementById("emailError").innerHTML = "Email is required";
+                isValid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerHTML = "Enter a valid email";
+                isValid = false;
+            }
+
+            // Password Validation
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters";
+                isValid = false;
+            }
+
+            // Confirm Password Validation
+            if (password !== confirmPassword) {
+                document.getElementById("confirmError").innerHTML = "Passwords do not match";
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Form Submitted Successfully!");
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+</html>
