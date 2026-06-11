@@ -49,9 +49,9 @@ function add(a = 10, b = 20) {
     console.log(a + b);
 }
 
-add(5, 6);    
-add(5);       
-add();        
+add(5, 6);    // 11
+add(5);       // 25
+add();        // 30
 
 //argument object
 function displayArguments() {
