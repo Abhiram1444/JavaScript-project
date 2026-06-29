@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Demo</title>
+
+    <style>
+
+        /* 1. Universal Selector */
+        * {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+        }
+
+        /* 2. Element Selector */
+        h1 {
+            color: darkblue;
+        }
+
+        /* 3. Class Selector */
+        .highlight {
+            background-color: yellow;
+        }
+
+        /* 4. ID Selector */
+        #main-heading {
+            text-align: center;
+            color: crimson;
+        }
+
+        /* 5. Group Selector */
+        h2, h3 {
+            color: green;
+        }
+
+        /* 6. Descendant Selector */
+        .container p {
+            color: blue;
+        }
+
+        /* 7. Child Selector */
+        .box > p {
+            font-weight: bold;
+            color: darkorange;
+        }
+
+        /* 8. Adjacent Sibling Selector */
+        h4 + p {
+            color: red;
+        }
+
+        /* 9. General Sibling Selector */
+        h5 ~ p {
+            background-color: lightgray;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1 id="main-heading">CSS Selectors Demonstration</h1>
+
+    <h2>Element & Group Selector</h2>
+
+    <h3>Styled using Group Selector</h3>
+
+    <p class="highlight">This paragraph uses the Class Selector.</p>
+
+    <div class="container">
+        <p>Descendant Selector: Paragraph inside container.</p>
+        <section>
+            <p>Nested paragraph also selected by Descendant Selector.</p>
+        </section>
+    </div>
+
+    <div class="box">
+        <p>Direct child selected by Child Selector.</p>
+
+        <section>
+            <p>Nested child NOT selected by Child Selector.</p>
+        </section>
+    </div>
+
+    <h4>Adjacent Sibling Example</h4>
+
+    <p>This paragraph is immediately after h4.</p>
+
+    <p>This paragraph is NOT selected.</p>
+
+    <hr>
+
+    <h5>General Sibling Example</h5>
+
+    <p>Sibling Paragraph 1</p>
+
+    <p>Sibling Paragraph 2</p>
+
+    <p>Sibling Paragraph 3</p>
+
+</body>
+</html>
