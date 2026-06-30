@@ -1,0 +1,20 @@
+.left{
+
+    float:left;
+    width:45%;
+    background:skyblue;
+    padding:20px;
+}
+
+.right{
+
+    float:right;
+    width:45%;
+    background:orange;
+    padding:20px;
+}
+
+.clear{
+
+    clear:both;
+}

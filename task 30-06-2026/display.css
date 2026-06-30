@@ -1,0 +1,30 @@
+body{
+    font-family:Arial;
+}
+
+.block{
+    display:block;
+    background:skyblue;
+    margin:10px;
+    padding:20px;
+}
+
+.inline{
+    display:inline;
+    background:orange;
+    padding:10px;
+}
+
+.inline-block{
+    display:inline-block;
+    width:150px;
+    height:80px;
+    background:lightgreen;
+    margin:10px;
+    text-align:center;
+    line-height:80px;
+}
+
+.none{
+    display:none;
+}
