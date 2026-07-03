@@ -1,0 +1,313 @@
+
+/* ===========================
+   Universal Selector
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+/* ===========================
+   Body
+=========================== */
+
+body{
+
+    font-family:Arial, sans-serif;
+
+    background:#f4f4f4;
+
+    color:#333;
+
+}
+
+
+/* ===========================
+   Sticky Header
+=========================== */
+
+#header{
+
+    position:sticky;
+
+    top:0;
+
+    background:#52a3b8;
+
+    color:white;
+
+    padding:20px;
+
+    z-index:100;
+
+}
+
+
+/* Element Selector */
+
+nav{
+
+    margin-top:10px;
+
+}
+
+
+/* Descendant Selector */
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin-right:20px;
+
+}
+
+
+/* Pseudo Class */
+
+nav a:hover{
+
+    color:yellow;
+
+}
+
+
+/* Class Selector */
+
+.title{
+
+    color:white;
+
+}
+
+
+/* ===========================
+   Hero Section
+=========================== */
+
+.hero{
+
+    background:linear-gradient(to right,#3498db,#922478);
+
+    color:white;
+
+    text-align:center;
+
+    padding:60px;
+
+}
+
+
+/* ===========================
+   Float Example
+=========================== */
+
+.content{
+
+    padding:30px;
+
+}
+
+.content img{
+
+    float:left;
+
+    margin-right:20px;
+
+    border:5px solid black;
+
+    border-radius:10px;
+
+}
+
+.clear{
+
+    clear:both;
+
+}
+
+
+/* ===========================
+   Cards
+=========================== */
+
+.cards{
+
+    margin:40px;
+
+}
+
+
+/* Class Selector */
+
+.card{
+
+    background:white;
+
+    border:2px solid gray;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+}
+
+
+/* Specificity Example */
+
+.card h3{
+
+    color:green;
+
+}
+
+/* Higher Specificity */
+
+.special h3{
+
+    color:red;
+
+}
+
+
+/* Button */
+
+.card button{
+
+    background:blue;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    margin-top:10px;
+
+    cursor:pointer;
+
+}
+
+.card button:hover{
+
+    background:orange;
+
+}
+
+
+/* ===========================
+   Relative & Absolute
+=========================== */
+
+.offer{
+
+    position:relative;
+
+    width:600px;
+
+    margin:40px auto;
+
+}
+
+.offer img{
+
+    width:100%;
+
+    border-radius:10px;
+
+}
+
+.badge{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    background:red;
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+}
+
+
+/* ===========================
+   Footer
+=========================== */
+
+footer{
+
+    background:#222;
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+
+/* ===========================
+   Fixed Button
+=========================== */
+
+.top-btn{
+
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:red;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+}
+
+
+/* ===========================
+   Attribute Selector
+=========================== */
+
+img[alt]{
+
+    box-shadow:5px 5px 10px gray;
+
+}
+
+
+/* ===========================
+   Pseudo Element
+=========================== */
+
+.hero p::first-letter{
+
+    font-size:40px;
+
+    color:yellow;
+
+}
