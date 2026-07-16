@@ -1,46 +1,30 @@
-import {useReducer} from "react";
-
 import "./App.css";
 
-import ProductList from "./components/ProductList";
+import Header from "../../task 16-07-2026/components/Header";
+import ProductList from "../../task 16-07-2026/components/ProductList";
+import Cart from "../../task 16-07-2026/components/Cart";
+import Checkout from "../../task 16-07-2026/components/checkout";
+import Footer from "../../task 16-07-2026/components/Footer";
 
-import Cart from "./components/Cart";
+function App() {
 
-import {initialState} from "./reducer/initialState";
+  return (
 
-import {cartReducer} from "./reducer/cartReducer";
+    <div className="container">
 
-function App(){
+      <Header />
 
-const[state,dispatch]=useReducer(
+      <ProductList />
 
-cartReducer,
+      <Cart />
 
-initialState
+      <Checkout />
 
-);
+      <Footer />
 
-return(
+    </div>
 
-<div>
-
-<h1>Shopping Cart using useReducer</h1>
-
-<ProductList dispatch={dispatch}/>
-
-<hr/>
-
-<Cart
-
-cart={state.cart}
-
-dispatch={dispatch}
-
-/>
-
-</div>
-
-)
+  );
 
 }
 
