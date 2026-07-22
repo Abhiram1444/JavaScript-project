@@ -1,21 +1,11 @@
-//import UserCards from "../../task 21-07-2026/components/UserCards";
-import Counter from "../../assessment/components/Counter";
+import RegistrationForm from "../../task 22-07-2026/RegistrationForm";
 
 function App() {
   return (
-    <>
-      <Counter />
-    </>
+    <div>
+      <RegistrationForm />
+    </div>
   );
 }
 
 export default App;
-// function App() {
-//     return (
-//         <div>
-//             <UserCards />
-//         </div>
-//     );
-// }
-
-// export default App;
