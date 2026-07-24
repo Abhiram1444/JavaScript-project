@@ -1,62 +1,115 @@
-// import Dashboard from "../../task 23-07-2026/Dashboard";
-// import UserList from "../../task 23-07-2026/UserList";
+import Home from "../../task 24-07-2026/pages/Home";
 
-// import withAuthentication from "../../task 23-07-2026/withAuthentication";
-// import withLoading from "../../task 23-07-2026/withLoading";
-// import AdminPanel from "../../task 23-07-2026/AdminPanel";
-// import withAuthorization from "../../task 23-07-2026/withAuthorization";
+function App() {
+  return (
+    <div>
+      <Home />
+    </div>
+  );
+}
 
-// const AuthDashboard = withAuthentication(Dashboard);
-// const LoadingUserList = withLoading(UserList);
-// const ProtectedAdmin = withAuthorization(AdminPanel);
-
+export default App;
+// import { useState } from "react";
+// import Login from "../../task 24-07-2026/Login";
+// import Dashboard from "../../task 24-07-2026/Dashboard";
+// import AdminDashboard from "../../task 24-07-2026/AdminDashboard";
+// import StudentDashboard from "../../task 24-07-2026/StudentDashboard";
 
 // function App() {
+//   const [isLoggedIn, setIsLoggedIn] = useState(false);
+//   const [role, setRole] = useState("");
+
 //   return (
-//     <div style={{ textAlign: "center", marginTop: "30px" }}>
-//       <h1>Higher Order Components (HOC)</h1>
+//     <div>
+//       <h1>Conditional Rendering Example</h1>
 
-//       <h2>Authentication HOC</h2>
-//       <AuthDashboard />
+//       {!isLoggedIn ? (
+//         <Login
+//           setIsLoggedIn={setIsLoggedIn}
+//           setRole={setRole}
+//         />
+//       ) : (
+//         <>
+//           <button
+//             onClick={() => {
+//               setIsLoggedIn(false);
+//               setRole("");
+//             }}
+//           >
+//             Logout
+//           </button>
 
-//       <hr />
-
-//       <h2>Loading HOC</h2>
-//       <LoadingUserList isLoading={false} />
-
-//       <hr />
-
-//       <h2>Authorization HOC</h2>
-//      <ProtectedAdmin />
+//           {role === "admin" ? (
+//             <AdminDashboard />
+//           ) : role === "student" ? (
+//             <StudentDashboard />
+//           ) : (
+//             <Dashboard />
+//           )}
+//         </>
+//       )}
 //     </div>
 //   );
 // }
 
 // export default App;
 
+// import Counter from "../../task 24-07-2026/Counter";
 
-import { useEffect, useState } from "react";
-import Products from "../../task 23-07-2026/Products";
-import withSpinner from "../../task 23-07-2026/withSpinner";
+// function App() {
+//   return (
+//     <div>
+//       <h1>useEffect Hook Example</h1>
+//       <Counter />
+//     </div>
+//   );
+// }
 
-const ProductWithSpinner = withSpinner(Products);
+// export default App;
 
-function App() {
-  const [loading, setLoading] = useState(true);
+// import { useEffect, useState } from "react";
+// import UserCard from "../../task 24-07-2026/UserCard";
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
+// function App() {
+//   const [users, setUsers] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState("");
 
-  return (
-    <div style={{ textAlign: "center" }}>
-      <h1>Loading Spinner HOC Example</h1>
+//   useEffect(() => {
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error("Failed to fetch users");
+//         }
+//         return response.json();
+//       })
+//       .then((data) => {
+//         setUsers(data);
+//         setLoading(false);
+//       })
+//       .catch(() => {
+//         setError("Something went wrong!");
+//         setLoading(false);
+//       });
+//   }, []);
 
-      <ProductWithSpinner loading={loading} />
-    </div>
-  );
-}
+//   if (loading) {
+//     return <h2>Loading Users...</h2>;
+//   }
 
-export default App;
+//   if (error) {
+//     return <h2>{error}</h2>;
+//   }
+
+//   return (
+//     <div>
+//       <h1>User List</h1>
+
+//       {users.map((user) => (
+//         <UserCard key={user.id} user={user} />
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default App;
