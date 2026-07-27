@@ -1,115 +1,51 @@
-import Home from "../../task 24-07-2026/pages/Home";
+// import Users from "../../task 27-07-2026/Users";
+
+// function App() {
+//   return (
+//     <div>
+//       <h1>User List</h1>
+//       <Users />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import { useState } from "react";
+// import Header from "../../task 27-07-2026/Header";
+// import Footer from "../../task 27-07-2026/Footer";
+
+// function App() {
+//   const [count, setCount] = useState(0);
+
+//   console.log("Parent Rendered");
+
+//   return (
+//     <div style={{ textAlign: "center" }}>
+//       <Header />
+
+//       <h1>Count: {count}</h1>
+
+//       <button onClick={() => setCount(count + 1)}>
+//         Increment
+//       </button>
+
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import UserList from "../../task 27-07-2026/Minipractice/UserList";
 
 function App() {
   return (
     <div>
-      <Home />
+      <h1 style={{ textAlign: "center" }}>User Directory</h1>
+      <UserList />
     </div>
   );
 }
 
 export default App;
-// import { useState } from "react";
-// import Login from "../../task 24-07-2026/Login";
-// import Dashboard from "../../task 24-07-2026/Dashboard";
-// import AdminDashboard from "../../task 24-07-2026/AdminDashboard";
-// import StudentDashboard from "../../task 24-07-2026/StudentDashboard";
-
-// function App() {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-//   const [role, setRole] = useState("");
-
-//   return (
-//     <div>
-//       <h1>Conditional Rendering Example</h1>
-
-//       {!isLoggedIn ? (
-//         <Login
-//           setIsLoggedIn={setIsLoggedIn}
-//           setRole={setRole}
-//         />
-//       ) : (
-//         <>
-//           <button
-//             onClick={() => {
-//               setIsLoggedIn(false);
-//               setRole("");
-//             }}
-//           >
-//             Logout
-//           </button>
-
-//           {role === "admin" ? (
-//             <AdminDashboard />
-//           ) : role === "student" ? (
-//             <StudentDashboard />
-//           ) : (
-//             <Dashboard />
-//           )}
-//         </>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// import Counter from "../../task 24-07-2026/Counter";
-
-// function App() {
-//   return (
-//     <div>
-//       <h1>useEffect Hook Example</h1>
-//       <Counter />
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// import { useEffect, useState } from "react";
-// import UserCard from "../../task 24-07-2026/UserCard";
-
-// function App() {
-//   const [users, setUsers] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState("");
-
-//   useEffect(() => {
-//     fetch("https://jsonplaceholder.typicode.com/users")
-//       .then((response) => {
-//         if (!response.ok) {
-//           throw new Error("Failed to fetch users");
-//         }
-//         return response.json();
-//       })
-//       .then((data) => {
-//         setUsers(data);
-//         setLoading(false);
-//       })
-//       .catch(() => {
-//         setError("Something went wrong!");
-//         setLoading(false);
-//       });
-//   }, []);
-
-//   if (loading) {
-//     return <h2>Loading Users...</h2>;
-//   }
-
-//   if (error) {
-//     return <h2>{error}</h2>;
-//   }
-
-//   return (
-//     <div>
-//       <h1>User List</h1>
-
-//       {users.map((user) => (
-//         <UserCard key={user.id} user={user} />
-//       ))}
-//     </div>
-//   );
-// }
-
-// export default App;
