@@ -1,97 +1,237 @@
-// import Profile from "../../task 28-07-2026/Fragment/Profile";
-// import profile1 from "../../task 28-07-2026/Fragment/profile1";
+
+import Counter from "../../task 29-07-2026/Counter";
+import { PureComponent } from "react";
+
+class App extends PureComponent {
+
+  state = {
+    count: 0
+  };
+
+  render() {
+
+    console.log("App Rendered");
+
+    return (
+      <div>
+
+        <h1>{this.state.count}</h1>
+
+        <button
+          onClick={() =>
+            this.setState({
+              count: this.state.count + 1
+            })
+          }
+        >
+          Increment
+        </button>
+
+        <Counter />
+
+      </div>
+    );
+  }
+}
+
+export default App;
+
+
+
+
+
+
+
+// import { useState } from "react";
+// import Child from "../../task 29-07-2026/reactmemo/Child";
+// import Childwithmemo from "../../task 29-07-2026/reactmemo/Childwithmemo";
 
 // function App() {
+
+//   const [count, setCount] = useState(0);
+
+//   return (
+
+//     <div>
+
+//       <h1>{count}</h1>
+
+//       <button
+//         onClick={() => setCount(count + 1)}
+//       >
+//         Increment
+//       </button>
+
+//       <Childwithmemo />
+
+//     </div>
+
+//   );
+// }
+
+// export default App;
+
+
+
+// import { useState } from "react";
+// import Childpropschange from "../../task 29-07-2026/reactmemo/Childpropschange";
+
+// function App() {
+
+//   const [name, setName] = useState("Abhiram");
+
+//   return (
+
+//     <div>
+
+//       <button
+//         onClick={() => setName("Rahul")}
+//       >
+//         Change Name
+//       </button>
+
+//       <Childpropschange name={name} />
+
+//     </div>
+
+//   );
+// }
+
+// export default App;
+
+
+//without memo
+// import { useState } from "react";
+
+// function App() {
+//   const [count, setCount] = useState(0);
+//   const [number] = useState(5);
+
+//   function factorial(n) {
+//     console.log("Calculating...");
+//     let result = 1;
+
+//     for (let i = 1; i <= n; i++) {
+//       result *= i;
+//     }
+
+//     return result;
+//   }
+
 //   return (
 //     <div>
-//       <Profile />
+//       <h2>Counter: {count}</h2>
+
+//       <button onClick={() => setCount(count + 1)}>
+//         Increment
+//       </button>
+
+//       <h3>Factorial: {factorial(number)}</h3>
 //     </div>
 //   );
 // }
 
 // export default App;
 
-// import Profile from "../../task 28-07-2026/HOC/Profile";
-// import withGreeting from "../../task 28-07-2026/HOC/withGreeting";
 
-// const GreetingProfile = withGreeting(Profile);
-
-// function App() {
-//   return <GreetingProfile />;
-// }
-
-// export default App;
-
-// import Dashboard from "../../task 28-07-2026/HOC/Authenication/Dashboard";
-// import withAuth from "../../task 28-07-2026/HOC/Authenication/withAuth";
-
-// const ProtectedDashboard = withAuth(Dashboard);
+//with usememo
+// import { useMemo, useState } from "react";
 
 // function App() {
+//   const [count, setCount] = useState(0);
+//   const [number] = useState(5);
+
+//   function factorial(n) {
+//     console.log("Calculating...");
+//     let result = 1;
+
+//     for (let i = 1; i <= n; i++) {
+//       result *= i;
+//     }
+
+//     return result;
+//   }
+
+//   const result = useMemo(() => {
+//     return factorial(number);
+//   }, [number]);
+
 //   return (
-//     <ProtectedDashboard />
+//     <div>
+//       <h2>Counter: {count}</h2>
+
+//       <button onClick={() => setCount(count + 1)}>
+//         Increment
+//       </button>
+
+//       <h3>Factorial: {result}</h3>
+//     </div>
 //   );
 // }
 
 // export default App;
 
-// import UserList from "../../task 28-07-2026/HOC/Loading/UserList";
-// import withLoading from "../../task 28-07-2026/HOC/Loading/withLoading";
-
-// const UserListWithLoading = withLoading(UserList);
-
-// const users = [
-//   { id: 1, name: "Abhiram" },
-//   { id: 2, name: "Ramu" },
-//   { id: 3, name: "lucky" }
-// ];
+// Large calculations with usememo
+// import { useMemo, useState } from "react";
 
 // function App() {
+//   const [count, setCount] = useState(0);
 
-//   const isLoading = true;
+//   const sum = useMemo(() => {
+//     console.log("Calculating Sum...");
+//     let total = 0;
+
+//     for (let i = 1; i <= 10000000; i++) {
+//       total += i;
+//     }
+
+//     return total;
+//   }, []);
 
 //   return (
-//     <UserListWithLoading
-//       users={users}
-//       isLoading={isLoading}
-//     />
+//     <div>
+//       <button onClick={() => setCount(count + 1)}>
+//         Counter {count}
+//       </button>
+
+//       <h2>{sum}</h2>
+//     </div>
 //   );
 // }
 
 // export default App;
 
-import Users from "../../task 28-07-2026/Custom hooks/hooks/components/Users";
-import RegistrationForm from "../../task 28-07-2026/Custom hooks/hooks/components/RegistrationForm";
-import ScreenSize from "../../task 28-07-2026/Custom hooks/hooks/components/ScreenSize";
-import ThemeSwitcher from "../../task 28-07-2026/Custom hooks/hooks/components/ThemeSwitcher";
 
-function App() {
-  return (
-    <div style={{ padding: "20px" }}>
-      <h1>React Custom Hooks Demo</h1>
+//without callback 
 
-      <hr />
+// import { useCallback, useState } from "react";
+// import ChildwithoutCallback from "../../task 29-07-2026/callback/Childwithout callback()";
 
-      <h2>1. API Calls - useFetch()</h2>
-      <Users />
+// function App() {
 
-      <hr />
+//   const [count, setCount] = useState(0);
 
-      <h2>2. Form Handling - useForm()</h2>
-      <RegistrationForm />
+//   const handleClick = () => {
+//     console.log("Button Clicked");
+//   };
 
-      <hr />
+//   return (
+//     <div>
 
-      <h2>3. Window Resize - useWindowSize()</h2>
-      <ScreenSize />
+//       <h1>{count}</h1>
 
-      <hr />
+//       <button
+//         onClick={() => setCount(count + 1)}
+//       >
+//         Increment
+//       </button>
 
-      <h2>4. Theme Management - useTheme()</h2>
-      <ThemeSwitcher />
-    </div>
-  );
-}
+//       <ChildwithoutCallback
+//         handleClick={handleClick}
+//       />
 
-export default App;
+//     </div>
+//   );
+// }
 
+// export default App;
