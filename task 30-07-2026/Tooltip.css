@@ -1,0 +1,17 @@
+.tooltip{
+
+position:fixed;
+
+top:80px;
+
+left:100px;
+
+background:black;
+
+color:white;
+
+padding:8px;
+
+border-radius:5px;
+
+}
