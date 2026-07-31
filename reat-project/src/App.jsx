@@ -1,123 +1,21 @@
-
-import { useState } from "react";
-import Modal from "../../task 30-07-2026/Modal";
-
-function App() {
-
-  const [showModal, setShowModal] = useState(false);
-
-  return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-
-      <h1>React Portal Demo</h1>
-
-      <button onClick={() => setShowModal(true)}>
-        Open Modal
-      </button>
-
-      {
-        showModal &&
-        <Modal closeModal={() => setShowModal(false)} />
-      }
-
-    </div>
-  );
-
-}
-
-export default App;
-
-
-
-// import { useState } from "react";
-// import Popup from "../../task 30-07-2026/Popup";
-
-// function App(){
-
-// const [showPopup,setShowPopup]=useState(false);
-
-// return(
-
-// <div>
-
-// <button onClick={()=>setShowPopup(true)}>
-
-// Show Popup
-
-// </button>
-
-// {
-// showPopup &&
-// <Popup/>
-// }
-
-// </div>
-
-// );
-
-// }
-
-// export default App;
-
-
-
-// import { useState } from "react";
-// import Tooltip from "../../task 30-07-2026/Tooltip";
-
-// function App(){
-
-// const [show,setShow]=useState(false);
-
-// return(
-
-// <div style={{margin:"100px"}}>
-
-// <button
-
-// onMouseEnter={()=>setShow(true)}
-
-// onMouseLeave={()=>setShow(false)}
-
-// >
-
-// Hover Me
-
-// </button>
-
-// {
-// show &&
-// <Tooltip/>
-// }
-
-// </div>
-
-// );
-
-// }
-
-// export default App;
-
-
-//Event binding example input change event
-// import { useState } from "react";
-
+// Render lists dynamically using the map() method with input of names
 // function App() {
-
-//   const [name, setName] = useState("");
-
-//   function handleChange(event) {
-//     setName(event.target.value);
-//   }
+//   const students = [
+//     { id: 1, name: "Abhiram", course: "React" },
+//     { id: 2, name: "Arjun", course: "Angular" },
+//     { id: 3, name: "Aditya", course: "Selenium" }
+//   ];
 
 //   return (
 //     <div>
-//       <input
-//         type="text"
-//         placeholder="Enter Name"
-//         onChange={handleChange}
-//       />
+//       <h2>Students</h2>
 
-//       <h2>{name}</h2>
+//       {students.map(student => (
+//         <div key={student.id}>
+//           <h3>{student.name}</h3>
+//           <p>{student.course}</p>
+//         </div>
+//       ))}
 //     </div>
 //   );
 // }
@@ -125,87 +23,95 @@ export default App;
 // export default App;
 
 
-// event handling in class component
 
-// import React, { Component } from "react";
+// Rendering Nested Lists with Proper Keys with unique key
 
-// class App extends Component {
+// function App() {
+//   const departments = [
+//     {
+//       id: 1,
+//       department: "IT",
+//       employees: ["Rahul", "Priya"]
+//     },
+//     {
+//       id: 2,
+//       department: "HR",
+//       employees: ["Anjali", "Ravi"]
+//     }
+//   ];
 
-//   handleClick() {
-//     alert("Button Clicked!");
-//   }
+//   return (
+//     <div>
+//       {departments.map(dept => (
+//         <div key={dept.id}>
+//           <h2>{dept.department}</h2>
 
-//   render() {
-//     return (
-//       <div>
-//         <h2>Event Handling in Class Component</h2>
+//           <ul>
+//             {dept.employees.map((employee, index) => (
+//               <li key={index}>{employee}</li>
+//             ))}
+//           </ul>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
 
-//         <button onClick={() => this.handleClick()}>
-//           Click Me
-//         </button>
-//       </div>
-//     );
-//   }
+// export default App;  
+
+
+//Practiced Conditional Rendering Within Lists with map()
+// function App() {
+//   const products = [
+//     { id: 1, name: "Laptop", price: 65000, inStock: true },
+//     { id: 2, name: "Mobile", price: 25000, inStock: false },
+//     { id: 3, name: "Keyboard", price: 1500, inStock: true }
+//   ];
+
+//   return (
+//     <div>
+//       <h1>Products</h1>
+
+//       {products.map(product =>
+//         product.inStock ? (
+//           <div
+//             key={product.id}
+//             style={{
+//               border: "5px solid black",
+//               margin: "10px",
+//               padding: "10px"
+//             }}
+//           >
+//             <h3>{product.name}</h3>
+//             <p>₹{product.price}</p>
+//             <p>Available</p>
+//           </div>
+//         ) : null
+//       )}
+//     </div>
+//   );
 // }
 
 // export default App;
 
 
-
-// event handling form submit in class method
-
-// import React, { Component } from "react";
-
-// class App extends Component {
-
-//   handleSubmit = (event) => {
-
-//     event.preventDefault();
-
-//     alert("Form Submitted");
-
+// Object destructuring 
+// function App() {
+//   const employee = {
+//     id: 101,
+//     name: "Rahul",
+//     department: "Development",
+//     salary: 60000
 //   };
 
-//   render() {
-
-//     return (
-
-//       <form onSubmit={this.handleSubmit}>
-
-//         <input type="text" />
-
-//         <button>
-
-//           Submit
-
-//         </button>
-
-//       </form>
-
-//     );
-
-//   }
-
-// }
-
-// export default App;
-
-
-
-// passing parameters to event handlers with numbers
-// function App() {
-
-//   function showId(id) {
-//     alert("Product ID: " + id);
-//   }
+//   const { id, name, department, salary } = employee;
 
 //   return (
 //     <div>
-
-//       <button onClick={() => showId(101)}>
-//         Show ID
-//       </button>
-
+//       <h2>{name}</h2>
+//       <p>ID: {id}</p>
+//       <p>{department}</p>
+//       <p>₹{salary}</p>
 //     </div>
 //   );
 // }
@@ -213,102 +119,235 @@ export default App;
 // export default App;
 
 
-// passing a string
-
+// Array destructuring
 // function App() {
+//   const colors = ["Red", "Green", "Blue", "Yellow"];
 
-//   function greet(name) {
-
-//     alert("Welcome " + name);
-
-//   }
+//   const [first, second, third] = colors;
 
 //   return (
-
-//     <button onClick={() => greet("Abhiram")}>
-
-//       Greet
-
-//     </button>
-
+//     <div>
+//       <h2>{first}</h2>
+//       <h2>{second}</h2>
+//       <h2>{third}</h2>
+//     </div>
 //   );
-
 // }
 
-// export default App; 
+// export default App;
 
 
-// Click, Change, Submit, Focus, and Blur in React
+//Destructuring with nested objects
+
+// function App() {
+//   const student = {
+//     name: "Rahul",
+//     address: {
+//       city: "Hyderabad",
+//       state: "Telangana"
+//     }
+//   };
+
+//   const {
+//     name,
+//     address: { city, state }
+//   } = student;
+
+//   return (
+//     <div>
+//       <h2>{name}</h2>
+//       <p>{city}</p>
+//       <p>{state}</p>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// destructuring with function parametrs
+
+// function User({ name, age }) {
+//   return (
+//     <div>
+//       <h2>{name}</h2>
+//       <p>{age}</p>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <User
+//       name="Priya"
+//       age={24}
+//     />
+//   );
+// }
+
+// export default App;
+
+// nested drestructuring with map method
+// function App() {
+//   const employees = [
+//     {
+//       id: 1,
+//       name: "Rahul",
+//       address: {
+//         city: "Hyderabad",
+//         state: "Telangana"
+//       }
+//     },
+//     {
+//       id: 2,
+//       name: "Priya",
+//       address: {
+//         city: "Bangalore",
+//         state: "Karnataka"
+//       }
+//     }
+//   ];
+
+//   return (
+//     <div>
+//       {employees.map(
+//         ({
+//           id,
+//           name,
+//           address: { city, state }
+//         }) => (
+//           <div key={id}>
+//             <h2>{name}</h2>
+//             <p>{city}</p>
+//             <p>{state}</p>
+//           </div>
+//         )
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// destructuring with props and state
+// import Student from "../../task 31-07-2026/Students";
+
+// function App() {
+//   return (
+//     <Student
+//       name="Abhiram"
+//       age={24}
+//       course="React"
+//     />
+//   );
+// }
+
+// export default App;
+
+// destructuring with state
 
 // import { useState } from "react";
 
 // function App() {
-//   const [name, setName] = useState("");
-//   const [message, setMessage] = useState("Click the button");
-//   const [focusMessage, setFocusMessage] = useState("");
-
-//   // Click Event
-//   function handleClick() {
-//     setMessage("Button Clicked!");
-//   }
-
-//   // Change Event
-//   function handleChange(event) {
-//     setName(event.target.value);
-//   }
-
-//   // Submit Event
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//     alert(`Form Submitted Successfully!\nName: ${name}`);
-//   }
-
-//   // Focus Event
-//   function handleFocus() {
-//     setFocusMessage("Input field is focused");
-//   }
-
-//   // Blur Event
-//   function handleBlur() {
-//     setFocusMessage("Input field lost focus");
-//   }
+//   const [name, setName] = useState("Abhiram");
 
 //   return (
-//     <div style={{ padding: "20px", fontFamily: "Arial" }}>
-//       <h1>React Events Example</h1>
+//     <div>
+//       <h2>{name}</h2>
 
-//       {/* Click Event */}
-//       <h2>1. Click Event</h2>
-//       <button onClick={handleClick}>Click Me</button>
-//       <p>{message}</p>
-
-//       <hr />
-
-//       {/* Form Events */}
-//       <h2>2. Form Events</h2>
-
-//       <form onSubmit={handleSubmit}>
-//         <input
-//           type="text"
-//           placeholder="Enter your name"
-//           value={name}
-//           onChange={handleChange}
-//           onFocus={handleFocus}
-//           onBlur={handleBlur}
-//         />
-
-//         <br />
-//         <br />
-
-//         <button type="submit">Submit</button>
-//       </form>
-
-//       <p>
-//         <strong>Current Input:</strong> {name}
-//       </p>
-
-//       <p>{focusMessage}</p>
+//       <button onClick={() => setName("Rahul")}>
+//         Change Name
+//       </button>
 //     </div>
+//   );
+// }
+
+// export default App;
+
+
+// same with multiple states
+// import { useState } from "react";
+
+// function App() {
+//   const [name, setName] = useState("Abhiram");
+//   const [age, setAge] = useState(22);
+//   const [course, setCourse] = useState("React");
+
+//   return (
+//     <div>
+//       <h2>{name}</h2>
+//       <p>{age}</p>
+//       <p>{course}</p>
+
+//       <button onClick={() => setName("Rahul")}>
+//         Change Name
+//       </button>
+
+//       <button onClick={() => setAge(25)}>
+//         Change Age
+//       </button>
+
+//       <button onClick={() => setCourse("Angular")}>
+//         Change Course
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// Reactlazy loading ans suspense
+
+// import React, { Suspense } from "react";
+
+// const Home = React.lazy(() =>
+//   import("./task 31-07-2026/reactlazyandsuspense/Home")
+// );
+
+// const About = React.lazy(() =>
+//   import("./task 31-07-2026/reactlazyandsuspense/About")
+// );
+
+// const Contact = React.lazy(() =>
+//   import("./task 31-07-2026/reactlazyandsuspense/Contact")
+// );
+
+// function App() {
+//   return (
+//     <Suspense fallback={<h2>Loading Components...</h2>}>
+//       <Home />
+//       <About />
+//       <Contact />
+//     </Suspense>
+//   );
+// }
+
+// export default App;
+
+// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+// import React, { Suspense } from "react";
+
+// const Home = React.lazy(() => import("./task 31-07-2026/reactlazyandsuspense/Home"));
+// const About = React.lazy(() => import("./task 31-07-2026/reactlazyandsuspense/About"));
+// const Contact = React.lazy(() => import("./task 31-07-2026/reactlazyandsuspense/Contact"));
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <nav>
+//         <Link to="/">Home</Link> |{" "}
+//         <Link to="/about">About</Link> |{" "}
+//         <Link to="/contact">Contact</Link>
+//       </nav>
+
+//       <Suspense fallback={<h2>Loading Page...</h2>}>
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/about" element={<About />} />
+//           <Route path="/contact" element={<Contact />} />
+//         </Routes>
+//       </Suspense>
+//     </BrowserRouter>
 //   );
 // }
 
