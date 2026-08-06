@@ -1,57 +1,36 @@
-// const path = require("path");
-
-// module.exports={
-
-//  mode:"development",
-
-// entry:"./src/task 05-08-2026/index.js",
-
-// output:{
-
-// filename:"bundle.js",
-
-// path:path.resolve(__dirname,"dist"),
-
-// clean:true
-
-// },
-
-// };
-
-
-
-
-
 const path = require("path");
 
 module.exports = {
 
-mode:"development",
+    mode: "development",
 
-entry:"./src/task 05-08-2026/Loaders/index.js",
+    entry: "./src/task 06-08-2026/index.js",
 
-output:{
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "dist")
+    },
 
-filename:"bundle1.js",
+    module: {
 
-path:path.resolve(__dirname,"dist")
+        rules: [
 
-},
+            {
 
-module:{
+                test: /\.js$/,
 
-rules:[
+                exclude: /node_modules/,
 
-{
+                use: {
 
-test:/\.css$/,
+                    loader: "babel-loader"
 
-use:["style-loader","css-loader"]
+                }
 
-}
+            }
 
-]
+        ]
 
-}
+    }
 
-}
+};
