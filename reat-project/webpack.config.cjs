@@ -1,36 +1,56 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+  // Starting point of the application
+  entry: "./src/index.js",
 
-    mode: "development",
+  // Output configuration
+  output: {
+    filename: "bundles.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/"
+  },
 
-    entry: "./src/task 06-08-2026/index.js",
+  // Development server configuration
+  devServer: {
+    static: "./dist",
+    historyApiFallback: true,
+    port: 3000,
+    open: true,
+    hot: true
+  },
 
-    output: {
-        filename: "bundle.js",
-        path: path.resolve(__dirname, "dist")
-    },
+  // Source maps help during debugging
+  devtool: "source-map",
 
-    module: {
-
-        rules: [
-
-            {
-
-                test: /\.js$/,
-
-                exclude: /node_modules/,
-
-                use: {
-
-                    loader: "babel-loader"
-
-                }
-
-            }
-
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: "babel-loader"
+      },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          "css-loader"
         ]
+      }
+    ]
+  },
 
-    }
+  resolve: {
+    extensions: [".js"]
+  },
 
+  plugins: [
+    new CleanWebpackPlugin(),
+
+    new HtmlWebpackPlugin({
+      template: "./public/index.html"
+    })
+  ]
 };
