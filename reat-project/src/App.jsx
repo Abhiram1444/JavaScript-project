@@ -1,15 +1,35 @@
-import UserList from "./task 11-08-2026/UserList";
-import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  increment,
+  decrement,
+  reset,
+} from "./task 12-08-2026/counterSlice";
 
 function App() {
-  return (
-    <div className="app">
-      <h1>Users List</h1>
-      <p className="subtitle">
-        Fetching users from a sample API using useEffect and useState
-      </p>
+  const count = useSelector((state) => state.counter.value);
 
-      <UserList />
+  const dispatch = useDispatch();
+
+  return (
+    <div className="container">
+      <h1>Redux Toolkit Counter</h1>
+
+      <h2>{count}</h2>
+
+      <div className="buttons">
+        <button onClick={() => dispatch(increment())}>
+          Increment
+        </button>
+
+        <button onClick={() => dispatch(decrement())}>
+          Decrement
+        </button>
+
+        <button onClick={() => dispatch(reset())}>
+          Reset
+        </button>
+      </div>
     </div>
   );
 }
