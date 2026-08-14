@@ -1,35 +1,39 @@
-import { useDispatch, useSelector } from "react-redux";
+import { Link, Routes, Route } from "react-router-dom";
 
-import {
-  increment,
-  decrement,
-  reset,
-} from "./task 12-08-2026/counterSlice";
+import Home from "./task 14-08-2026/Home";
+import About from "./task 14-08-2026/About";
+import Products from "./task 14-08-2026/Products";
+import ProductDetails from "./task 14-08-2026/ProductDetails";
+import NotFound from "./task 14-08-2026/NotFound";
 
 function App() {
-  const count = useSelector((state) => state.counter.value);
-
-  const dispatch = useDispatch();
-
   return (
-    <div className="container">
-      <h1>Redux Toolkit Counter</h1>
+    <div>
+      <nav className="navbar">
+        <h2>My React App</h2>
 
-      <h2>{count}</h2>
+        <div>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/products">Products</Link>
+        </div>
+      </nav>
 
-      <div className="buttons">
-        <button onClick={() => dispatch(increment())}>
-          Increment
-        </button>
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <button onClick={() => dispatch(decrement())}>
-          Decrement
-        </button>
+          <Route path="/about" element={<About />} />
 
-        <button onClick={() => dispatch(reset())}>
-          Reset
-        </button>
-      </div>
+          <Route path="/products" element={<Products />} />
+
+          {/* Dynamic Route */}
+          <Route path="/products/:id" element={<ProductDetails />} />
+
+          {/* 404 Route */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
     </div>
   );
 }
