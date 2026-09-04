@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Task Manager</h1>
+
+        <!-- Form Handling -->
+        <form id="taskForm">
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter a task"
+                required
+            >
+
+            <button type="submit">Add Task</button>
+        </form>
+
+        <!-- Task List -->
+        <ul id="taskList"></ul>
+
+        <!-- API Section -->
+        <button id="loadTasks">Load Tasks from API</button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
